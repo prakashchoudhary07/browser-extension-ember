@@ -1,0 +1,26 @@
+{
+  "name": "Test-browser-extension",
+  "description": "Small description for test-browser-extension goes here",
+  "version": "0.0.0",
+  "manifest_version": 3,
+  "icons": {
+    "16": "test-browser-extension-16.png",
+    "128": "test-browser-extension-16.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "css": ["assets/app.css"],
+      "js": ["assets/app.js", "content-script.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "test-browser-extension-16.png"
+    },
+    "default_title": "Ember-test extension",
+    "default_popup": "popup/popup.html"
+  },
+  "permissions": ["tabs", "activeTab", "storage", "management", "windows"]
+}

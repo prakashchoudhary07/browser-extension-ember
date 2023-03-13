@@ -4,6 +4,23 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
+    // Check if it works
+    fingerprint: {
+      exclude: ['app'],
+    },
+    storeConfigInMeta: false,
+    emberCliConcat: {
+      js: {
+        concat: true,
+      },
+      css: {
+        concat: true,
+      },
+    },
+    // autoImport: {
+    //   forbidEval: true,
+    // },
+
     // Add options here
   });
 

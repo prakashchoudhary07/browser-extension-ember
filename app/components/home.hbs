@@ -1,0 +1,39 @@
+
+
+<button {{on "click" this.makeBorder}} type="button">
+  ADD border to page
+</button>
+<br>
+<br>
+
+<button {{on "click" this.makeApiCAll}} type="button">
+MAKE API CALL</button>
+<br>
+<br>
+
+<button {{on "click" (perform this.getCurrentTab)}} type="button">
+  GET current TAB Details
+</button>
+
+{{log this.tabs}}
+{{log this.currentTabs}}
+{{log this.currentTab}}
+
+{{#if this.tabs}}
+  {{#each this.tabs as |s|}}
+    <li>
+      <strong>{{s.url}}</strong>:
+      <strong>{{s.isActive}}</strong>:
+    </li>
+  {{/each}}
+{{/if}}
+
+{{#if this.currentTab}}
+    <li>
+      <strong>{{s.url}}</strong>:
+      <strong>{{s.isActive}}</strong>:
+    </li>
+{{/if}}
+
+
+

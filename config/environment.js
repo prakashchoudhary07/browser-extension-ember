@@ -5,7 +5,7 @@ module.exports = function (environment) {
     modulePrefix: 'test-browser-extension',
     environment,
     rootURL: '/',
-    locationType: 'history',
+    locationType: 'hash',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -14,9 +14,19 @@ module.exports = function (environment) {
     },
 
     APP: {
+      autoboot: false,
       // Here you can pass flags/options to your application instance
       // when it is created
     },
+  };
+
+  // Check if it works without this
+  ENV['ember-cli-post-build-copy'] = {
+    replace: true,
+    development: [
+      ['/assets/app.js', 'chrome/assets/app.js'],
+      ['/assets/app.css', 'chrome/assets/app.css'],
+    ],
   };
 
   if (environment === 'development') {

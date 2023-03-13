@@ -1,6 +1,9 @@
 'use strict';
 
 module.exports = {
+  global: {
+    chrome: true,
+  },
   root: true,
   parser: 'babel-eslint',
   parserOptions: {
