@@ -4,13 +4,12 @@ import { task } from 'ember-concurrency';
 import { action } from '@ember/object';
 
 export default class HomeComponent extends Component {
-  currentTabs = null;
+  @tracked currentTabs = null;
   @tracked currentTab = undefined;
   tabs = null;
 
   constructor() {
     super(...arguments);
-    this.getCurrentTabsss();
   }
 
   getCurrentTab = task(async () => {
@@ -21,20 +20,21 @@ export default class HomeComponent extends Component {
   });
 
   @action async getCurrentTabsss() {
-    let queryOptions = { active: true, lastFocusedWindow: true };
+    let queryOptions = {};
     let tabs = await chrome.tabs.query(queryOptions);
     let [tab] = tabs;
     this.currentTabs = tabs;
     this.currentTab = tab;
-    console.log(this.currentTabs);
-    console.log(this.currentTab);
+    console.log('ALL tabns', this.currentTabs);
+    console.log('THIS TAB', this.currentTab);
   }
 
   @action makeBorder() {
-    document.body.style.border = '5px solid red';
+    document.body.style.border = '5px solid blue';
   }
 
   @action async makeApiCAll() {
+    console.log('ASD');
     const url = await fetch('https://google.com');
     console.log(url);
   }

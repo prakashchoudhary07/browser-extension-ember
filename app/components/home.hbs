@@ -1,39 +1,33 @@
-
-
-<button {{on "click" this.makeBorder}} type="button">
+<button {{on 'click' this.makeBorder}} type='button'>
   ADD border to page
 </button>
-<br>
-<br>
+<br />
+<br />
 
-<button {{on "click" this.makeApiCAll}} type="button">
-MAKE API CALL</button>
-<br>
-<br>
+<button {{on 'click' this.makeApiCAll}} type='button'>
+  MAKE API CALL</button>
+<br />
+<br />
 
-<button {{on "click" (perform this.getCurrentTab)}} type="button">
+<button {{on 'click' this.getCurrentTabsss}} type='button'>
   GET current TAB Details
 </button>
 
-{{log this.tabs}}
-{{log this.currentTabs}}
-{{log this.currentTab}}
-
-{{#if this.tabs}}
-  {{#each this.tabs as |s|}}
+{{#if this.currentTabs}}
+  {{#each this.currentTabs as |s|}}
     <li>
-      <strong>{{s.url}}</strong>:
+      <strong>{{s.title}}</strong>:
+      {{!-- <strong>{{s.url}}</strong>: --}}
       <strong>{{s.isActive}}</strong>:
+      <img src={{s.favIconUrl}} alt={{s.title}} />
     </li>
   {{/each}}
 {{/if}}
 
 {{#if this.currentTab}}
-    <li>
-      <strong>{{s.url}}</strong>:
-      <strong>{{s.isActive}}</strong>:
-    </li>
+  <p>
+    <strong>{{this.currentTab.title}}</strong>:
+    <strong>{{this.currentTab.url}}</strong>:
+    <strong>{{this.currentTab.isActive}}</strong>:
+  </p>
 {{/if}}
-
-
-
